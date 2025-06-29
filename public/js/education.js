@@ -1,7 +1,7 @@
 // Educational Content Module
 // Renders Porcelain 101 or Cultural Heritage section
 
-export function renderEducation() {
+window.renderEducation = function() {
     const container = document.createElement('div');
     container.innerHTML = `
         <h2>Porcelain 101 / Cultural Heritage (Demo)</h2>
@@ -9,4 +9,4 @@ export function renderEducation() {
         <div class="education-placeholder">[Educational Content Placeholder]</div>
     `;
     return container;
-} 
+}; 
