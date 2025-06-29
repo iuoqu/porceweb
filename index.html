@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>瓷韵新生 - 中国创意陶瓷艺术商城</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="antialiased">
+    <header class="bg-white/80 backdrop-blur-md sticky top-0 z-50 shadow-sm">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <h1 class="text-xl font-bold accent-text cursor-pointer" id="home-logo">瓷韵新生</h1>
+            <div class="hidden md:flex items-center space-x-8">
+                <a href="#home" class="nav-link active" data-page="home">首页</a>
+                <a href="#products" class="nav-link" data-page="products">所有作品</a>
+                <a href="#materials" class="nav-link" data-page="materials">材质分类</a>
+                <a href="#designs" class="nav-link" data-page="designs">设计风格</a>
+                <a href="#artists" class="nav-link" data-page="artists">艺术家</a>
+                <a href="#cart" class="nav-link relative" data-page="cart">
+                    购物车
+                    <span id="cart-count" class="absolute -top-2 -right-4 bg-accent-bg text-white text-xs font-bold rounded-full h-5 w-5 flex items-center justify-center">0</span>
+                </a>
+            </div>
+            <button id="mobile-menu-button" class="md:hidden focus:outline-none">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+            </button>
+        </nav>
+        <div id="mobile-menu" class="hidden md:hidden px-6 pt-2 pb-4 space-y-2">
+            <a href="#home" class="block nav-link mobile-nav-link" data-page="home">首页</a>
+            <a href="#products" class="block nav-link mobile-nav-link" data-page="products">所有作品</a>
+            <a href="#materials" class="block nav-link mobile-nav-link" data-page="materials">材质分类</a>
+            <a href="#designs" class="block nav-link mobile-nav-link" data-page="designs">设计风格</a>
+            <a href="#artists" class="block nav-link mobile-nav-link" data-page="artists">艺术家</a>
+            <a href="#cart" class="block nav-link mobile-nav-link relative" data-page="cart">
+                购物车
+                <span id="mobile-cart-count" class="absolute top-0 right-0 bg-accent-bg text-white text-xs font-bold rounded-full h-5 w-5 flex items-center justify-center">0</span>
+            </a>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-6 py-12" id="main-content">
+        <!-- Content will be dynamically loaded here -->
+    </main>
+
+    <script src="js/data.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html> 

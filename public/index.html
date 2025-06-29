@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>瓷韵新生 - 中国创意陶瓷</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="./css/styles.css">
+    <style>
+        :root {
+            --primary-bg: #F8F5F2;
+            --secondary-bg: #E8E4E1;
+            --accent-bg: #B85C38;
+            --accent-text: #B85C38;
+        }
+        body {
+            background-color: var(--primary-bg);
+            color: var(--accent-text);
+        }
+        .accent-text {
+            color: var(--accent-text);
+        }
+        .accent-bg {
+            background-color: var(--accent-bg);
+        }
+        .secondary-bg {
+            background-color: var(--secondary-bg);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="bg-white shadow-lg">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="flex justify-between h-16">
+                <!-- Desktop Navigation -->
+                <div class="flex">
+                    <div class="flex-shrink-0 flex items-center">
+                        <a href="#" id="home-logo" class="text-2xl font-bold accent-text">瓷韵新生</a>
+                    </div>
+                    <div class="hidden md:ml-6 md:flex md:space-x-8">
+                        <a href="#" class="nav-link inline-flex items-center px-1 pt-1 text-gray-600 hover:text-black" data-page="home">首页</a>
+                        <a href="#" class="nav-link inline-flex items-center px-1 pt-1 text-gray-600 hover:text-black" data-page="products">作品</a>
+                        <a href="#" class="nav-link inline-flex items-center px-1 pt-1 text-gray-600 hover:text-black" data-page="materials">材质</a>
+                        <a href="#" class="nav-link inline-flex items-center px-1 pt-1 text-gray-600 hover:text-black" data-page="designs">设计</a>
+                        <a href="#" class="nav-link inline-flex items-center px-1 pt-1 text-gray-600 hover:text-black" data-page="artists">艺术家</a>
+                    </div>
+                </div>
+                <!-- Cart Icon (Desktop) -->
+                <div class="hidden md:flex items-center">
+                    <a href="#" class="nav-link relative p-2 rounded-full hover:bg-gray-100" data-page="cart">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                        </svg>
+                        <span id="cart-count" class="hidden absolute -top-1 -right-1 bg-red-500 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">0</span>
+                    </a>
+                </div>
+                <!-- Mobile menu button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-button" class="inline-flex items-center justify-center p-2 rounded-md text-gray-600 hover:text-black hover:bg-gray-100 focus:outline-none">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="hidden md:hidden">
+            <div class="px-2 pt-2 pb-3 space-y-1">
+                <a href="#" class="mobile-nav-link block px-3 py-2 rounded-md text-base font-medium text-gray-600 hover:text-black hover:bg-gray-100" data-page="home">首页</a>
+                <a href="#" class="mobile-nav-link block px-3 py-2 rounded-md text-base font-medium text-gray-600 hover:text-black hover:bg-gray-100" data-page="products">作品</a>
+                <a href="#" class="mobile-nav-link block px-3 py-2 rounded-md text-base font-medium text-gray-600 hover:text-black hover:bg-gray-100" data-page="materials">材质</a>
+                <a href="#" class="mobile-nav-link block px-3 py-2 rounded-md text-base font-medium text-gray-600 hover:text-black hover:bg-gray-100" data-page="designs">设计</a>
+                <a href="#" class="mobile-nav-link block px-3 py-2 rounded-md text-base font-medium text-gray-600 hover:text-black hover:bg-gray-100" data-page="artists">艺术家</a>
+                <a href="#" class="mobile-nav-link relative block px-3 py-2 rounded-md text-base font-medium text-gray-600 hover:text-black hover:bg-gray-100" data-page="cart">
+                    购物车
+                    <span id="mobile-cart-count" class="hidden absolute top-2 right-2 bg-red-500 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">0</span>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="max-w-7xl mx-auto px-4 py-8">
+        <div id="main-content"></div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-white mt-12">
+        <div class="max-w-7xl mx-auto px-4 py-8">
+            <div class="text-center text-gray-600">
+                <p>© 2024 瓷韵新生. 本网站仅用于展示。</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="./js/data.js"></script>
+    <script src="./js/app.js"></script>
+</body>
+</html> 

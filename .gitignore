@@ -1,0 +1,20 @@
+# Node modules (if any in future)
+node_modules/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Editor folders
+.vscode/
+.idea/
+
+# Environment files
+.env
+
+# Misc
+*.swp
+*.swo 
