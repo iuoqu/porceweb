@@ -279,7 +279,11 @@ document.addEventListener('DOMContentLoaded', function() {
                     </div>
                 </div>
             </div>
+            <div id="product-community-section"></div>
         `;
+        // Render Community
+        const commSection = document.getElementById('product-community-section');
+        commSection.appendChild(renderCommunity());
     }
 
     function showArtistDetailPage(artistId) {
@@ -289,51 +293,65 @@ document.addEventListener('DOMContentLoaded', function() {
             return;
         }
         const mainContent = document.getElementById('main-content');
+        const lang = window.currentLanguage;
         const artistProducts = productsData.filter(p => p.artistId === artist.id);
-        let productsHtml = artistProducts.map(p => `
-            <div class="bg-secondary-bg rounded-lg shadow-md overflow-hidden cursor-pointer" onclick="showProductDetailPage(${p.id});">
-                <img src="${p.images[0]}" alt="${p.name[window.currentLanguage]}" class="w-full h-48 object-cover">
-                <div class="p-4">
-                    <h4 class="font-bold">${p.name[window.currentLanguage]}</h4>
-                    <p class="text-sm accent-text">¥${p.price.toFixed(2)}</p>
-                </div>
-            </div>
-        `).join('');
-        mainContent.innerHTML = `
-            <div class="max-w-4xl mx-auto bg-white rounded-lg shadow-2xl p-8">
-                <button onclick="navigateTo('artists')" class="text-gray-500 hover:text-black mb-6 flex items-center">
-                    <svg class="w-6 h-6 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
-                    ${uiText.backToArtists[window.currentLanguage]}
-                </button>
+        // Get one-liner (first sentence of bio)
+        const oneLiner = artist.bio[lang].split(/[。.!?]/)[0] + (artist.bio[lang].match(/[。.!?]/) ? artist.bio[lang].match(/[。.!?]/)[0] : '');
+        // Hero section
+        let html = `
+            <div class="max-w-4xl mx-auto bg-white rounded-lg shadow-2xl p-8 mb-8">
                 <div class="text-center mb-8">
-                    <img src="${artist.image}" alt="${artist.name[window.currentLanguage]}" class="w-48 h-48 rounded-full object-cover mx-auto mb-4 shadow-lg">
-                    <h2 class="text-3xl font-bold mb-2">${artist.name[window.currentLanguage]}</h2>
-                    <p class="text-xl accent-text font-semibold mb-4">${artist.specialty[window.currentLanguage]}</p>
+                    <h2 class="text-4xl font-bold mb-2 font-serif accent-text">${artist.name[lang]}</h2>
+                    <p class="text-xl accent-text font-semibold mb-2">${artist.specialty[lang]}</p>
+                    <p class="text-gray-700 italic mb-0">${oneLiner}</p>
                 </div>
-                <div class="grid grid-cols-1 gap-8">
-                    <div>
-                        <h3 class="text-2xl font-bold mb-4 border-b pb-2">${uiText.artistBio[window.currentLanguage]}</h3>
-                        <p class="text-gray-700 mb-6">${artist.bio[window.currentLanguage]}</p>
+                <div id="artist-talk-section"></div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-8">
+                    <div class="col-span-1 md:col-span-1">
+                        <h3 class="text-2xl font-bold mb-4 border-b pb-2">${uiText.artistBio[lang]}</h3>
+                        <p class="text-gray-700 mb-6">${artist.bio[lang]}</p>
                     </div>
-                    <div>
-                        <h3 class="text-2xl font-bold mb-4 border-b pb-2">${uiText.philosophy[window.currentLanguage]}</h3>
-                        <p class="text-gray-700 mb-6 italic border-l-4 accent-border pl-4">${artist.philosophy[window.currentLanguage]}</p>
+                    <div class="col-span-1 md:col-span-1">
+                        <h3 class="text-2xl font-bold mb-4 border-b pb-2">${uiText.philosophy[lang]}</h3>
+                        <p class="text-gray-700 mb-6 italic border-l-4 accent-border pl-4">${artist.philosophy[lang]}</p>
                     </div>
-                    <div>
-                        <h3 class="text-2xl font-bold mb-4 border-b pb-2">${uiText.techniques[window.currentLanguage]}</h3>
+                    <div class="col-span-1 md:col-span-1">
+                        <h3 class="text-2xl font-bold mb-4 border-b pb-2">${uiText.techniques[lang]}</h3>
                         <div class="flex flex-wrap gap-2">
-                            ${artist.techniques[window.currentLanguage].map(tech => `<span class="px-4 py-2 bg-secondary-bg rounded-full">${tech}</span>`).join('')}
-                        </div>
-                    </div>
-                    <div>
-                        <h3 class="text-2xl font-bold mb-4 border-b pb-2">${uiText.artistWorks[window.currentLanguage]}</h3>
-                        <div class="grid md:grid-cols-3 gap-4">
-                            ${productsHtml}
+                            ${artist.techniques[lang].map(tech => `<span class="px-4 py-2 bg-secondary-bg rounded-full">${tech}</span>`).join('')}
                         </div>
                     </div>
                 </div>
             </div>
+            <div class="max-w-4xl mx-auto">
+                <h3 class="text-3xl font-bold mb-6 mt-8 font-serif accent-text">${uiText.artistWorks[lang]}</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12" id="artist-products-grid">
+                </div>
+            </div>
+            <div id="artist-community-section" class="max-w-4xl mx-auto"></div>
         `;
+        mainContent.innerHTML = html;
+        // Render ArtistTalk
+        const talkSection = document.getElementById('artist-talk-section');
+        talkSection.appendChild(window.renderArtistTalk(artist));
+        // Render products grid
+        const productsGrid = document.getElementById('artist-products-grid');
+        artistProducts.forEach(p => {
+            const card = document.createElement('div');
+            card.className = 'bg-white rounded-lg shadow-lg overflow-hidden transform hover:-translate-y-2 transition-transform duration-300 cursor-pointer flex flex-col';
+            card.innerHTML = `
+                <img src="${p.images[0]}" alt="${p.name[lang]}" class="w-full h-64 object-cover">
+                <div class="p-6 flex-1 flex flex-col justify-between">
+                    <h4 class="font-bold text-xl mb-2">${p.name[lang]}</h4>
+                    <p class="text-2xl accent-text font-semibold mb-0">¥${p.price.toFixed(2)}</p>
+                </div>
+            `;
+            card.addEventListener('click', () => showProductDetailPage(p.id));
+            productsGrid.appendChild(card);
+        });
+        // Render Community
+        const commSection = document.getElementById('artist-community-section');
+        commSection.appendChild(renderCommunity());
     }
 
     function renderCart() {
@@ -475,6 +493,15 @@ document.addEventListener('DOMContentLoaded', function() {
                 mainContent.innerHTML = getCheckoutPageTemplate();
                 cart = []; // Clear cart on checkout
                 updateCartCount();
+                break;
+            case 'gamification':
+                showGamificationPage();
+                break;
+            case 'education':
+                showEducationPage();
+                break;
+            case 'about':
+                showAboutPage();
                 break;
         }
 
@@ -635,4 +662,27 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     updateNavTabNames();
+
+    // Add new navigation entries for Gamification, Education, and About
+    function showGamificationPage() {
+        mainContent.innerHTML = '';
+        mainContent.appendChild(renderQuiz());
+        mainContent.appendChild(renderScavengerHunt());
+        mainContent.appendChild(renderLeaderboard());
+    }
+
+    function showEducationPage() {
+        mainContent.innerHTML = '';
+        mainContent.appendChild(renderEducation());
+    }
+
+    function showAboutPage() {
+        mainContent.innerHTML = `
+            <h2>About / Corporate Introduction</h2>
+            <p>Company background and mission statement here.</p>
+            <div id="ecommerce-trust-section"></div>
+        `;
+        const trustSection = document.getElementById('ecommerce-trust-section');
+        trustSection.appendChild(renderEcommerceTrust());
+    }
 }); 

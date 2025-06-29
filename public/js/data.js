@@ -7,7 +7,23 @@ const artistsData = [
         bio: { zh: "林墨之，生于景德镇陶瓷世家，自幼研习国画，后将水墨精神融入陶瓷创作。他的作品以意境深远、笔法精湛著称，致力于在传统青花中探索现代审美，将山水之韵凝于方寸瓷间。", en: "Lin Mozhi, born in a Jingdezhen porcelain family, studied Chinese painting from a young age and later integrated ink spirit into ceramic creation. His works are known for their profound artistic conception and exquisite brushwork, exploring modern aesthetics within traditional blue-and-white, capturing the charm of landscapes on porcelain." },
         philosophy: { zh: "以瓷为纸，以料为墨，绘山水之魂，承古今之韵。他坚信每一笔都应承载情感与气韵，让冰冷的陶瓷拥有山水的温度和生命力，传递东方哲学中的天人合一。", en: "Using porcelain as paper and material as ink, he paints the soul of landscapes, inheriting the charm of ancient and modern times. He believes every stroke should carry emotion and spirit, giving cold ceramics the warmth and vitality of landscapes, conveying the Eastern philosophy of harmony between man and nature." },
         techniques: { zh: ["高温青花", "手绘", "釉下彩"], en: ["High-temperature blue-and-white", "Hand painting", "Underglaze painting"] },
-        featured: true
+        featured: true,
+        artistTalk: {
+            zh: [
+                { type: 'video', title: '访谈视频', url: 'https://www.example.com/video1-zh.mp4' },
+                { type: 'qna', question: '您创作青花瓷的灵感来源是什么？', answer: '我的灵感主要来自中国山水画和自然景观。' },
+                { type: 'award', title: '中国陶瓷艺术金奖', year: 2022 },
+                { type: 'testimonial', author: '藏家A', text: '林老师的作品极具东方美学，令人赞叹。' },
+                { type: 'photo', title: '工作室一角', url: 'https://placehold.co/600x400/3D4045/F8F5F2?text=Studio+Photo' }
+            ],
+            en: [
+                { type: 'video', title: 'Interview Video', url: 'https://www.example.com/video1-en.mp4' },
+                { type: 'qna', question: 'What inspires your blue-and-white porcelain creations?', answer: 'My inspiration mainly comes from Chinese landscape painting and nature.' },
+                { type: 'award', title: 'China Ceramic Art Gold Award', year: 2022 },
+                { type: 'testimonial', author: 'Collector A', text: 'Master Lin\'s works are full of Eastern aesthetics and truly impressive.' },
+                { type: 'photo', title: 'Studio Corner', url: 'https://placehold.co/600x400/3D4045/F8F5F2?text=Studio+Photo' }
+            ]
+        }
     },
     {
         id: 2,
@@ -17,7 +33,23 @@ const artistsData = [
         bio: { zh: "毕业于中央美术学院雕塑系，陈静的作品跨越了传统陶瓷与当代艺术的界限。她善于运用德化白瓷的纯净特质，创作出形态极简、线条流畅的作品，探索纯粹与空灵。", en: "Graduated from the Sculpture Department of the Central Academy of Fine Arts, Chen Jing's works have crossed the boundaries between traditional ceramics and contemporary art. She is good at using the pure characteristics of Dehua white porcelain to create simple and smooth works, exploring purity and emptiness." },
         philosophy: { zh: "少即是多，纯粹至美。她试图剥离所有冗余的装饰，用最纯粹的形态和光影来探讨物质与精神、存在与虚无的边界，追求器物与空间、人之间的和谐。", en: "Less is more, pure beauty. She tried to remove all redundant decorations and used the most pure form and shadow to explore the boundaries between matter and spirit, existence and emptiness, pursuing harmony between objects and space, and people." },
         techniques: { zh: ["德化白瓷", "手工拉坯", "素烧"], en: ["Dehua white porcelain", "Hand-thrown forming", "Suan burning"] },
-        featured: true
+        featured: true,
+        artistTalk: {
+            zh: [
+                { type: 'video', title: '访谈视频', url: 'https://www.example.com/video2-zh.mp4' },
+                { type: 'qna', question: '您如何看待极简主义在陶瓷中的表达？', answer: '极简主义让作品回归本质，突出材质与空间的对话。' },
+                { type: 'award', title: '青年陶艺家奖', year: 2021 },
+                { type: 'testimonial', author: '藏家B', text: '陈静的白瓷作品极具现代感，令人印象深刻。' },
+                { type: 'photo', title: '创作现场', url: 'https://placehold.co/600x400/D1C7C0/3D4045?text=Studio+Photo' }
+            ],
+            en: [
+                { type: 'video', title: 'Interview Video', url: 'https://www.example.com/video2-en.mp4' },
+                { type: 'qna', question: 'How do you view minimalism in ceramics?', answer: 'Minimalism brings works back to their essence, highlighting the dialogue between material and space.' },
+                { type: 'award', title: 'Young Ceramic Artist Award', year: 2021 },
+                { type: 'testimonial', author: 'Collector B', text: 'Chen Jing\'s white porcelain works are very modern and impressive.' },
+                { type: 'photo', title: 'Studio Scene', url: 'https://placehold.co/600x400/D1C7C0/3D4045?text=Studio+Photo' }
+            ]
+        }
     },
     {
         id: 3,
@@ -27,7 +59,23 @@ const artistsData = [
         bio: { zh: '作为国家级非物质文化遗产传承人，王烨穷其一生研究高温色釉。他的作品色彩瑰丽，变化万千，被誉为"火中取宝"的色彩魔术师，每一件都是火焰与时间的艺术结晶。', en: 'As a national intangible cultural heritage successor, Wang Ye devoted his life to studying high-temperature color glaze. His works are colorful and changeable, and are known as the color magician of "taking treasures from fire," each of which is the artistic crystallization of fire and time.' },
         philosophy: { zh: '人造一半，天成一半，窑火铸就，独一无二。他认为自己的工作是创造条件，但最终的色彩与纹理是窑火的赠予。每一次烧制都是一次与自然的共创，充满了未知与惊喜。', en: 'Man-made half, heaven-made half, kiln-made, unique. He believes that his work is to create conditions, but the final color and texture are the gift of the kiln. Each firing is a co-creation with nature, full of unknown and surprises.' },
         techniques: { zh: ["高温窑变釉", "结晶釉", "单色釉"], en: ["High-temperature kiln-made glaze", "Crystalline glaze", "Single-color glaze"] },
-        featured: false
+        featured: false,
+        artistTalk: {
+            zh: [
+                { type: 'video', title: '访谈视频', url: 'https://www.example.com/video3-zh.mp4' },
+                { type: 'qna', question: '高温色釉的最大挑战是什么？', answer: '每一次烧制都充满未知，需要经验与运气的结合。' },
+                { type: 'award', title: '釉彩创新奖', year: 2020 },
+                { type: 'testimonial', author: '藏家C', text: '王烨的色釉作品色彩丰富，极具艺术感染力。' },
+                { type: 'photo', title: '烧制现场', url: 'https://placehold.co/600x400/D1C7C0/3D4045?text=Studio+Photo' }
+            ],
+            en: [
+                { type: 'video', title: 'Interview Video', url: 'https://www.example.com/video3-en.mp4' },
+                { type: 'qna', question: 'What is the biggest challenge in high-temperature color glaze?', answer: 'Every firing is full of uncertainty, requiring a combination of experience and luck.' },
+                { type: 'award', title: 'Glaze Innovation Award', year: 2020 },
+                { type: 'testimonial', author: 'Collector C', text: 'Wang Ye\'s color glaze works are rich in color and very artistically appealing.' },
+                { type: 'photo', title: 'Firing Scene', url: 'https://placehold.co/600x400/D1C7C0/3D4045?text=Studio+Photo' }
+            ]
+        }
     },
     {
         id: 4,
@@ -37,7 +85,23 @@ const artistsData = [
         bio: { zh: "张华，生长于宜兴，自幼耳濡目染紫砂陶艺。他专注于传统陶器雕刻，将古老的图腾与现代审美相结合，赋予陶器新的生命力。", en: "Zhang Hua, from Yixing, has been exposed to purple sand pottery since childhood. He has been focusing on traditional clay sculpture, combining ancient totem with modern aesthetics, giving new vitality to pottery." },
         philosophy: { zh: "泥土有灵，刻刀传情。他相信每一块泥土都蕴含着故事，通过刻刀的雕琢，将泥土的质朴与艺术的精髓完美融合，展现中华文化的厚重与细腻。", en: "The earth has spirit, the knife conveys emotion. He believes that every piece of earth contains a story, through the carving of the knife, the essence of earth and art are perfectly integrated, showcasing the thickness and delicacy of Chinese culture." },
         techniques: { zh: ["紫砂陶", "手工雕刻", "泥绘"], en: ["Purple sand pottery", "Hand carving", "Clay painting"] },
-        featured: true
+        featured: true,
+        artistTalk: {
+            zh: [
+                { type: 'video', title: '访谈视频', url: 'https://www.example.com/video4-zh.mp4' },
+                { type: 'qna', question: '雕刻与陶器结合的独特之处是什么？', answer: '雕刻让陶器拥有了更多的故事和情感表达。' },
+                { type: 'award', title: '传统工艺传承奖', year: 2019 },
+                { type: 'testimonial', author: '藏家D', text: '张华的雕刻作品极具文化底蕴，令人敬佩。' },
+                { type: 'photo', title: '雕刻现场', url: 'https://placehold.co/600x400/3D4045/F8F5F2?text=Studio+Photo' }
+            ],
+            en: [
+                { type: 'video', title: 'Interview Video', url: 'https://www.example.com/video4-en.mp4' },
+                { type: 'qna', question: 'What is unique about combining carving and pottery?', answer: 'Carving gives pottery more stories and emotional expression.' },
+                { type: 'award', title: 'Traditional Craft Heritage Award', year: 2019 },
+                { type: 'testimonial', author: 'Collector D', text: 'Zhang Hua\'s carved works are full of cultural heritage and are admirable.' },
+                { type: 'photo', title: 'Carving Scene', url: 'https://placehold.co/600x400/3D4045/F8F5F2?text=Studio+Photo' }
+            ]
+        }
     }
 ];
 
